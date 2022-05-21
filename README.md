@@ -24,7 +24,7 @@ Building a back end for an e-commerce site.
 Access MySql in terminal, run schema file and then exit MySql. Enter "npm start" and then "npm run seed".
 
 ## Usage
-[Video link]()
+[Video link](https://drive.google.com/file/d/1kpaIylQCRQZ8troqrfTK4CQbo0v8BatH/view?usp=sharing)
 
 ## User Story
 ```md
