@@ -7,16 +7,11 @@ router.get('/', (req, res) => {
   // find all tags
   // be sure to include its associated Product data
   Tag.findAll({
-    attributes: [
-      'id',
-      'tag_name',
-    ],
+   
     include: [
       {
         model: Product,
-        attributes: ['prdouct_name'],
         through: ProductTag,
-        as: 'tagged_products'
       }
     ]
   })
@@ -31,16 +26,10 @@ router.get('/:id', (req, res) => {
   // find a single tag by its `id`
   // be sure to include its associated Product data
   Tag.findOne({
-    attributes: [
-      'id',
-      'tag_name',
-    ],
     include: [
       {
         model: Product,
-        attributes: ['product_name'],
         through: ProductTag,
-        as: 'tagged_products',
       }
     ],
     where: {
@@ -49,7 +38,7 @@ router.get('/:id', (req, res) => {
   })
   .then(dbTagData => {
     if (!dbTagData) {
-      res.status(404).json({ message: 'No category found with this id' });
+      res.status(404).json({ message: 'No tag found with this id' });
       return;
     }
     res.json(dbTagData);
